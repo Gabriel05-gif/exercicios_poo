@@ -33,29 +33,27 @@ public class Main {
 			String name = sc.nextLine();
 			System.out.print("Price: ");
 			double price = sc.nextDouble();
-			
+
 			if (response == 'i') {
 				System.out.print("Customs fee: ");
 				double customsFee = sc.nextDouble();
 				products.add(new ImportedProduct(name, price, customsFee));
-			} 
-			else if (response == 'u') {
+			} else if (response == 'u') {
 				System.out.print("Manufactured date (DD/MM/YYYY): ");
 				Date manufacturedDate = sdf.parse(sc.next());
 				products.add(new UsedProduct(name, price, manufacturedDate));
-			}
-			else {
+			} else {
 				products.add(new Product(name, price));
 			}
 		}
-		
+
 		System.out.println();
 		System.out.println("PRICE TAGS:");
 		for (Product product : products) {
 			System.out.println(product.priceTag());
 		}
 
-			sc.close();
+		sc.close();
 	}
 
 }
